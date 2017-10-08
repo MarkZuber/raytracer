@@ -2,14 +2,15 @@ package main
 
 import (
 	"fmt"
-	"github.com/MarkZuber/raytrace"
-	"github.com/MarkZuber/raytrace/materials"
-	"github.com/MarkZuber/raytrace/shapes"
 	"image"
 	"image/draw"
 	"image/jpeg"
 	"image/png"
 	"os"
+
+	"github.com/MarkZuber/raytrace"
+	"github.com/MarkZuber/raytrace/materials"
+	"github.com/MarkZuber/raytrace/shapes"
 )
 
 func loadPng(filePath string) (*image.RGBA, error) {
@@ -82,7 +83,7 @@ func createTestScene() *raytrace.Scene {
 			0.2),
 		1.2))
 
-	marbleImage, err := loadPng("/Users/zube/go/src/github.com/MarkZuber/raytracer/marble1.png")
+	marbleImage, err := loadPng("/home/mzuber/go/src/github.com/MarkZuber/raytracer/marble1.png")
 	if err != nil {
 		os.Exit(2)
 	}
@@ -126,22 +127,22 @@ func createTestScene() *raytrace.Scene {
 		}
 	*/
 
-	boxImage, err := loadJpg("/Users/zube/go/src/github.com/MarkZuber/raytracer/rainbowcolor.jpg")
-	if err != nil {
-		fmt.Println(err)
-		os.Exit(2)
-	}
+	// boxImage, err := loadJpg("/Users/zube/go/src/github.com/MarkZuber/raytracer/rainbowcolor.jpg")
+	// if err != nil {
+	// 	fmt.Println(err)
+	// 	os.Exit(2)
+	// }
 
-	scene.AddShape(shapes.CreateBoxShape(
-		materials.CreateTextureMaterial(
-			boxImage,
-			1,
-			0.2,
-			0.0,
-			0.2,
-			0.5),
-		raytrace.CreateVector(1, 4, 1),
-		raytrace.CreateVector(3, 2.0, 3)))
+	// scene.AddShape(shapes.CreateBoxShape(
+	// 	materials.CreateTextureMaterial(
+	// 		boxImage,
+	// 		1,
+	// 		0.2,
+	// 		0.0,
+	// 		0.2,
+	// 		0.5),
+	// 	raytrace.CreateVector(1, 4, 1),
+	// 	raytrace.CreateVector(3, 2.0, 3)))
 
 	scene.AddLight(raytrace.CreateLight(
 		raytrace.CreateVector(5, 5, 10),
@@ -179,15 +180,15 @@ func createBallScene() *raytrace.Scene {
 			0.0),
 		0.5))
 
-	marbleImage, err := loadPng("/Users/zube/go/src/github.com/MarkZuber/raytracer/marble1.png")
+	marbleImage, err := loadPng("/home/mzuber/go/src/github.com/MarkZuber/raytracer/marble1.png")
 	if err != nil {
 		os.Exit(2)
 	}
 
-	signImage, err := loadPng("/Users/zube/go/src/github.com/MarkZuber/raytracer/stop_sign_page.png")
-	if err != nil {
-		os.Exit(2)
-	}
+	// signImage, err := loadPng("/Users/zube/go/src/github.com/MarkZuber/raytracer/stop_sign_page.png")
+	// if err != nil {
+	// 	os.Exit(2)
+	// }
 
 	scene.AddShape(shapes.CreateSphereShape(
 		raytrace.CreateVector(0, 0, 0),
@@ -200,16 +201,16 @@ func createBallScene() *raytrace.Scene {
 			0.5),
 		0.9))
 
-	scene.AddShape(shapes.CreateBoxShape(
-		materials.CreateTextureMaterial(
-			signImage,
-			1,
-			0.2,
-			0.0,
-			0.2,
-			0.5),
-		raytrace.CreateVector(-3, 4, 0),
-		raytrace.CreateVector(-1, 2.0, 4)))
+	// scene.AddShape(shapes.CreateBoxShape(
+	// 	materials.CreateTextureMaterial(
+	// 		signImage,
+	// 		1,
+	// 		0.2,
+	// 		0.0,
+	// 		0.2,
+	// 		0.5),
+	// 	raytrace.CreateVector(-3, 4, 0),
+	// 	raytrace.CreateVector(-1, 2.0, 4)))
 
 	// setup the chessboard floor
 	scene.AddShape(shapes.CreatePlaneShape(
@@ -248,7 +249,7 @@ func savePng(filePath string, img image.Image) error {
 
 func main() {
 	// initialize parameters
-	outPath := "/Users/zube/raytrace.png"
+	outPath := "/home/mzuber/raytrace.png"
 	sizeRect := image.Rect(0, 0, 1000, 1000)
 	// scene := createBallScene()
 	scene := createTestScene()
